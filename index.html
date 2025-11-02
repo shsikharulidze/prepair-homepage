@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PrePair — Preparing students, pairing them with opportunity</title>
+
+  <meta name="description" content="PrePair pairs college students with local small businesses for mentored, two-week micro-projects.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/site.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a class="brand" href="#">
+        <!-- Inline SVG logo to avoid blur. Replace paths with your real PrePair SVG later. -->
+        <div class="logo doodle floaty" aria-hidden="true">
+          <svg viewBox="0 0 64 64" width="36" height="36" role="img" aria-label="PrePair sprout logo">
+            <path d="M32 56V20m0 0c6 0 10-5 10-10M32 20c-6 0-10-5-10-10M24 36c4 0 8-4 8-8M40 44c4 0 8-4 8-8" />
+            <path d="M20 48c-4 2-6 5-7 8m6-4c2 0 5-1 8-3" />
+          </svg>
+        </div>
+        <span class="wordmark">PrePair</span>
+      </a>
+      <nav>
+        <a href="#packs">Project Packs</a>
+        <a href="#how">How it works</a>
+        <a href="#join">Join</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div>
+        <h1>Real projects for students. Real help for small businesses.</h1>
+        <p class="subtitle">
+          PrePair connects Fordham students with nearby businesses for mentored,
+          two-week micro-projects. Clean scopes, quick check-ins, portfolio-ready results.
+        </p>
+        <div class="cta">
+          <a class="btn" href="#join">Get early access</a>
+          <a class="btn ghost" href="#packs">See Project Packs</a>
+        </div>
+      </div>
+
+      <div class="doodle floaty" aria-hidden="true">
+        <!-- Simple cartoon illustration tiles -->
+        <svg viewBox="0 0 320 220" width="100%" height="auto" role="img" aria-label="PrePair illustration">
+          <rect x="10" y="10" width="120" height="80" rx="16"/>
+          <rect x="140" y="28" width="170" height="60" rx="16"/>
+          <rect x="20" y="110" width="140" height="90" rx="16"/>
+          <path d="M180 140c8-6 18-10 30-10s22 4 30 10m-60 0v40m60-40v40"/>
+        </svg>
+      </div>
+    </section>
+
+    <section id="packs" class="cards">
+      <article class="card sage">
+        <div class="doodle" aria-hidden="true">
+          <svg viewBox="0 0 64 36" width="64" height="36"><path d="M4 18h56M14 8l-10 10 10 10"/></svg>
+        </div>
+        <h3>Social Boost Pack</h3>
+        <p>12 IG posts + captions + 30-day calendar. Done in 2 weeks.</p>
+      </article>
+
+      <article class="card lilac">
+        <div class="doodle" aria-hidden="true">
+          <svg viewBox="0 0 64 36" width="64" height="36"><path d="M8 28h48v-20H8z M16 14h12m4 0h12 M16 22h26"/></svg>
+        </div>
+        <h3>Email Welcome Pack</h3>
+        <p>3-email welcome flow drafted and set up for approvals.</p>
+      </article>
+
+      <article class="card sand">
+        <div class="doodle" aria-hidden="true">
+          <svg viewBox="0 0 64 36" width="64" height="36"><path d="M6 30h52 M10 26l12-16 10 12 8-10 14 14"/></svg>
+        </div>
+        <h3>Local SEO Tune-Up</h3>
+        <p>GMB audit + 10 fixes + Q&A entries with before/after proof.</p>
+      </article>
+    </section>
+
+    <section id="how">
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <h3>Pick a Pack</h3>
+          <p>Choose a scoped micro-project with clear inputs and outputs.</p>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <h3>Get Matched</h3>
+          <p>We pair you with a trained student and handle the check-ins.</p>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <h3>Approve & Use</h3>
+          <p>Review against the checklist, download files, and ship.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="join" class="card" style="padding:28px;">
+      <h3 class="h-sg">Join the pilot</h3>
+      <p class="muted">Students are free during pilot. Businesses pay when matched.</p>
+      <div class="cta">
+        <a class="btn" href="#">I'm a business</a>
+        <a class="btn ghost" href="#">I'm a student</a>
+      </div>
+    </section>
+
+    <footer>
+      <small>© <span id="year"></span> PrePair. Preparing students, pairing them with opportunity.</small>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
