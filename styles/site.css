@@ -14,7 +14,7 @@ body{
 header{display:flex;align-items:center;justify-content:center;padding:14px 0;border-bottom:1px solid var(--border)}
 .brand{display:flex;gap:10px;align-items:center;text-decoration:none;color:inherit}
 .logo{width:40px;height:40px}
-.logo svg{stroke:var(--text);stroke-width:15 !important;fill:transparent;vector-effect:non-scaling-stroke}
+.logo svg{stroke:var(--text);stroke-width:6 !important;fill:transparent;vector-effect:non-scaling-stroke}
 .wordmark{font-family:"Bricolage Grotesque",Inter,sans-serif;font-weight:700;font-size:28px;line-height:1;letter-spacing:-.02em;color:var(--text);display:inline-block;position:relative;top:1px}
 
 .hero{padding:56px 0 32px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
