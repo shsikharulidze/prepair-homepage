@@ -13,7 +13,7 @@ body{
 .container{max-width:var(--container);margin:0 auto;padding:24px}
 header{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
 .brand{display:flex;gap:12px;align-items:center;text-decoration:none;color:inherit}
-.logo svg{stroke:var(--text);stroke-width:2;fill:transparent;vector-effect:non-scaling-stroke}
+.logo svg{stroke:var(--text);stroke-width:3;fill:transparent;vector-effect:non-scaling-stroke}
 .wordmark{font-family:"Space Grotesk",Inter,sans-serif;font-weight:700;letter-spacing:-.01em}
 nav a{color:var(--muted);text-decoration:none;margin-left:20px;font-weight:500}
 nav a:hover{color:var(--text)}
@@ -42,7 +42,7 @@ footer{border-top:1px solid var(--border);padding:24px 0;color:var(--muted)}
 .h-sg{font-family:"Space Grotesk",Inter,sans-serif;margin:0 0 6px}
 .muted{margin:0 0 12px;color:var(--muted)}
 
-.doodle svg{stroke:var(--text);stroke-width:2;fill:transparent;vector-effect:non-scaling-stroke;stroke-linecap:round;stroke-linejoin:round}
+.doodle svg{stroke:var(--text);stroke-width:3;fill:transparent;vector-effect:non-scaling-stroke;stroke-linecap:round;stroke-linejoin:round}
 @keyframes floaty{0%{transform:translateY(0)}50%{transform:translateY(-4px)}100%{transform:translateY(0)}}
 .floaty{animation:floaty 6s ease-in-out infinite}
 
