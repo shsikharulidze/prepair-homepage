@@ -13,7 +13,7 @@
 </head>
 <body>
   <div class="container">
-    <header>
+    <header id="site-header">
       <a class="brand" href="#">
         <!-- Inline SVG logo to avoid blur. Replace paths with your real PrePair SVG later. -->
         <div class="logo doodle floaty" aria-hidden="true">
@@ -146,8 +146,49 @@
     </footer>
   </div>
 
+  <style>
+    /* Sticky header */
+    #site-header{
+      position: sticky; top: 0; z-index: 1000;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border); /* existing thin line */
+      transition: box-shadow .25s ease, border-color .25s ease, padding .2s ease, backdrop-filter .25s ease;
+      will-change: box-shadow, border-color, padding;
+    }
+
+    /* Slightly tighter padding when sticky */
+    #site-header.is-sticky{ 
+      padding: 10px 0; /* was 14px; gentle shrink */
+      border-bottom-color: rgba(15,15,15,.20); /* bolder line color */
+      box-shadow: 0 4px 14px rgba(15,15,15,.08); /* subtle drop shadow */
+    }
+
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      #site-header{ transition: none; }
+    }
+
+    /* Optional: keep brand aligned during shrink */
+    #site-header.is-sticky .logo{ width: 36px; height: 36px; } /* was 36 → keeps steady; adjust if you want smaller */
+  </style>
+
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Sticky header toggle on scroll
+    (function(){
+      const header = document.getElementById('site-header');
+      let isSticky = false;
+      function onScroll(){
+        const shouldStick = window.scrollY > 8; // threshold
+        if(shouldStick !== isSticky){
+          header.classList.toggle('is-sticky', shouldStick);
+          isSticky = shouldStick;
+        }
+      }
+      window.addEventListener('scroll', onScroll, {passive:true});
+      onScroll();
+    })();
   </script>
 </body>
 </html>
