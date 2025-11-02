@@ -13,7 +13,8 @@
 </head>
 <body>
   <div class="container">
-    <header id="site-header">
+    <div id="header-shell">
+      <header id="site-header">
       <a class="brand" href="#">
         <!-- Inline SVG logo to avoid blur. Replace paths with your real PrePair SVG later. -->
         <div class="logo doodle floaty" aria-hidden="true">
@@ -170,20 +171,64 @@
 
     /* Optional: keep brand aligned during shrink */
     #site-header.is-sticky .logo{ width: 36px; height: 36px; } /* was 36 → keeps steady; adjust if you want smaller */
+
+    /* Sticky shell anchors the menu; island styles apply on scroll */
+    #header-shell{
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: transparent;
+      /* Allow smooth visual change */
+      transition: padding .20s ease, height .20s ease;
+    }
+
+    /* Base header still looks like your current bar */
+    #site-header{
+      border-bottom: 1px solid var(--border); /* flat line in default state */
+      background: transparent;
+      transition: 
+        background .25s ease,
+        border-radius .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease,
+        transform .25s ease,
+        padding .20s ease,
+        margin .25s ease;
+    }
+
+    /* Floating island state */
+    #header-shell.is-floating #site-header{
+      /* "island" look */
+      background: var(--bg);
+      border-bottom-color: transparent;      /* remove flat underline */
+      border: 1px solid var(--border);       /* subtle outline all around */
+      border-radius: 24px;                   /* rounded corners */
+      box-shadow: 0 12px 30px rgba(15,15,15,.10); /* soft shadow around */
+      margin-top: 20px;                      /* visible gap from very top */
+      padding: 10px 0;                       /* slight tighten on scroll */
+    }
+
+    /* Optional: slight scale for polish (comment out if you don't want it) */
+    @media (prefers-reduced-motion: no-preference){
+      #header-shell.is-floating #site-header{
+        transform: translateZ(0);
+      }
+    }
   </style>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
     
-    // Sticky header toggle on scroll
+    // Island header toggle on scroll
     (function(){
-      const header = document.getElementById('site-header');
-      let isSticky = false;
+      const shell = document.getElementById('header-shell');
+      const toggleAt = 8; // px scrolled before island appears
+      let floating = false;
       function onScroll(){
-        const shouldStick = window.scrollY > 8; // threshold
-        if(shouldStick !== isSticky){
-          header.classList.toggle('is-sticky', shouldStick);
-          isSticky = shouldStick;
+        const want = window.scrollY > toggleAt;
+        if (want !== floating){
+          shell.classList.toggle('is-floating', want);
+          floating = want;
         }
       }
       window.addEventListener('scroll', onScroll, {passive:true});
