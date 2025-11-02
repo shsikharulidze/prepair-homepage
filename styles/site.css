@@ -14,7 +14,7 @@ body{
 header{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
 .brand{display:flex;gap:8px;align-items:center;text-decoration:none;color:inherit}
 .logo svg{stroke:var(--text);stroke-width:3;fill:transparent;vector-effect:non-scaling-stroke}
-.wordmark{font-family:"Space Grotesk",Inter,sans-serif;font-weight:600;font-size:20px;letter-spacing:-.02em;color:var(--text)}
+.wordmark{font-family:"Space Grotesk",Inter,sans-serif;font-weight:600;font-size:28px;letter-spacing:-.02em;color:var(--text)}
 nav a{color:var(--muted);text-decoration:none;margin-left:20px;font-weight:500}
 nav a:hover{color:var(--text)}
 
