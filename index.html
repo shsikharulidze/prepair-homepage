@@ -222,6 +222,12 @@
       box-shadow: var(--shadow-island);      /* layered shadow for visibility */
     }
 
+    /* Reduce wordmark boldness when floating */
+    #header-shell.is-floating .wordmark{
+      font-weight: 600;                      /* lighter than default 700 */
+      font-size: 28px;                       /* slightly smaller */
+    }
+
     /* Mobile tweak */
     @media (max-width: 960px){
       #header-shell.is-floating{ padding-top: 16px; }
