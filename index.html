@@ -152,7 +152,8 @@
     :root{
       --island-bg: #FFFFFF;          /* whiter than page bg */
       --radius-island: 32px;         /* very round */
-      --shadow-island: 0 16px 40px rgba(15,15,15,.12);
+      --shadow-island: 0 8px 25px rgba(15,15,15,.18), 0 2px 8px rgba(15,15,15,.12);
+      --border-island: rgba(15,15,15,.08);
     }
 
     /* Sticky header */
@@ -213,12 +214,12 @@
     #header-shell.is-floating #site-header{
       /* "island" look */
       background: var(--island-bg);          /* more white */
-      border: 1px solid var(--border);       /* subtle outline all around */
+      border: 1px solid var(--border-island);/* visible thin border */
       border-bottom-color: transparent;      /* remove the flat underline */
       border-radius: var(--radius-island);
       margin-top: 0;                         /* no margin, shell handles spacing */
       padding: 10px 0;                       /* slight tighten */
-      box-shadow: var(--shadow-island);      /* soft shadow around */
+      box-shadow: var(--shadow-island);      /* layered shadow for visibility */
     }
 
     /* Mobile tweak */
