@@ -189,6 +189,12 @@
       transition: padding .20s ease, height .20s ease;
     }
 
+    /* When floating, add transparent top space */
+    #header-shell.is-floating{
+      padding-top: 20px;
+      background: transparent;
+    }
+
     /* Base header still looks like your current bar */
     #site-header{
       border-bottom: 1px solid var(--border); /* flat line in default state */
@@ -210,14 +216,15 @@
       border: 1px solid var(--border);       /* subtle outline all around */
       border-bottom-color: transparent;      /* remove the flat underline */
       border-radius: var(--radius-island);
-      margin-top: 20px;                      /* visible gap = island effect */
+      margin-top: 0;                         /* no margin, shell handles spacing */
       padding: 10px 0;                       /* slight tighten */
       box-shadow: var(--shadow-island);      /* soft shadow around */
     }
 
     /* Mobile tweak */
     @media (max-width: 960px){
-      #header-shell.is-floating #site-header{ border-radius: 28px; margin-top: 16px; }
+      #header-shell.is-floating{ padding-top: 16px; }
+      #header-shell.is-floating #site-header{ border-radius: 28px; }
     }
   </style>
 
