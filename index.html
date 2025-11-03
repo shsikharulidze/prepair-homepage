@@ -246,10 +246,30 @@
       font-size: 28px;                       /* slightly smaller */
     }
 
+    /* Better alignment - move wordmark up slightly */
+    .wordmark{
+      position: relative;
+      top: -2px;                             /* move up 2px for better centering */
+    }
+
     /* Mobile tweak */
     @media (max-width: 960px){
       #header-shell.is-floating{ padding-top: 16px; }
       #header-shell.is-floating #site-header{ border-radius: 28px; }
+      
+      /* Bigger and bolder logo on mobile */
+      .logo{
+        width: 44px !important;
+        height: 44px !important;
+      }
+      .logo svg{
+        stroke-width: 5 !important;          /* bolder stroke on mobile */
+      }
+      
+      /* Smaller gap on mobile */
+      .brand{
+        gap: 4px;
+      }
     }
 
   </style>
