@@ -233,6 +233,34 @@
       #header-shell.is-floating{ padding-top: 16px; }
       #header-shell.is-floating #site-header{ border-radius: 28px; }
     }
+
+    /* Mobile warning overlay */
+    #mobile-warning{
+      position: fixed; inset: 0; z-index: 2000;
+      display: none; /* toggled by JS */
+      place-items: center;
+      background: rgba(15,15,15,.40);
+    }
+    #mobile-warning .mw-panel{
+      background: #FFFFFF; /* whiter than page bg */
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: 0 16px 40px rgba(15,15,15,.12);
+      width: min(92vw, 520px);
+      padding: 20px;
+      text-align: center;
+    }
+    #mobile-warning h2{
+      font-family: "Space Grotesk", Inter, sans-serif;
+      margin: 0 0 8px; letter-spacing: -.01em;
+    }
+    #mobile-warning .mw-actions{ margin-top: 14px; display:flex; justify-content:center }
+    #mobile-warning .btn{ border-radius: 999px; padding: 10px 14px; }
+
+    /* Only ever show on small screens */
+    @media (max-width: 960px){
+      #mobile-warning{ display: grid; }
+    }
   </style>
 
   <script>
@@ -253,6 +281,39 @@
       window.addEventListener('scroll', onScroll, {passive:true});
       onScroll();
     })();
+
+    // Mobile warning overlay
+    (function(){
+      const warn = document.getElementById('mobile-warning');
+      const btn = document.getElementById('mw-continue');
+      const mq = window.matchMedia('(max-width: 960px)');
+      function sync(){
+        const dismissed = sessionStorage.getItem('mw_dismissed') === '1';
+        warn.hidden = !mq.matches || dismissed ? true : false;
+      }
+      mq.addEventListener ? mq.addEventListener('change', sync) : window.addEventListener('resize', sync);
+      if(btn){ btn.addEventListener('click', function(){ sessionStorage.setItem('mw_dismissed','1'); sync(); }); }
+      sync();
+    })();
   </script>
+
+  <div id="mobile-warning" role="dialog" aria-modal="true" hidden>
+    <div class="mw-panel">
+      <h2>WEBSITE IS NOT OPTIMIZED FOR PHONE YET</h2>
+      <p>For the best experience, please view on a desktop. You can continue anyway.</p>
+      <div class="mw-actions">
+        <button id="mw-continue" class="btn">Continue anyway</button>
+      </div>
+    </div>
+  </div>
+
+  <noscript>
+    <div style="position:fixed;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.4);z-index:2000">
+      <div style="background:#fff;border:1px solid #E8E2D9;border-radius:16px;box-shadow:0 16px 40px rgba(15,15,15,.12);padding:20px;max-width:520px;text-align:center">
+        <strong>WEBSITE IS NOT OPTIMIZED FOR PHONE YET</strong>
+        <div>Enable JavaScript or open on desktop.</div>
+      </div>
+    </div>
+  </noscript>
 </body>
 </html>
