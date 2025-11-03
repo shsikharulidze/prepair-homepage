@@ -255,12 +255,12 @@
     /* Mobile tweak */
     @media (max-width: 960px){
       #header-shell.is-floating{ padding-top: 16px; }
-      #header-shell.is-floating #site-header{ border-radius: 28px; }
+      #header-shell.is-floating #site-header{ border-radius: 999px; }  /* pill shape with circular ends */
       
-      /* Bigger and bolder logo on mobile */
+      /* Slightly smaller but bolder logo on mobile */
       .logo{
-        width: 44px !important;
-        height: 44px !important;
+        width: 42px !important;               /* 1-2px smaller as requested */
+        height: 42px !important;
       }
       .logo svg{
         stroke-width: 5 !important;          /* bolder stroke on mobile */
@@ -269,6 +269,11 @@
       /* Smaller gap on mobile */
       .brand{
         gap: 4px;
+      }
+      
+      /* Move PrePair text higher on mobile */
+      .wordmark{
+        top: -5px !important;                /* 3px higher than desktop (-2px + -3px = -5px) */
       }
     }
 
