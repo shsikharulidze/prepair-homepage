@@ -149,6 +149,12 @@
   </div>
 
   <style>
+    :root{
+      --island-bg: #FFFFFF;          /* whiter than page bg */
+      --radius-island: 32px;         /* very round */
+      --shadow-island: 0 16px 40px rgba(15,15,15,.12);
+    }
+
     /* Sticky header */
     #site-header{
       position: sticky; top: 0; z-index: 1000;
@@ -200,20 +206,18 @@
     /* Floating island state */
     #header-shell.is-floating #site-header{
       /* "island" look */
-      background: var(--bg);
-      border-bottom-color: transparent;      /* remove flat underline */
+      background: var(--island-bg);          /* more white */
       border: 1px solid var(--border);       /* subtle outline all around */
-      border-radius: 24px;                   /* rounded corners */
-      box-shadow: 0 12px 30px rgba(15,15,15,.10); /* soft shadow around */
-      margin-top: 20px;                      /* visible gap from very top */
-      padding: 10px 0;                       /* slight tighten on scroll */
+      border-bottom-color: transparent;      /* remove the flat underline */
+      border-radius: var(--radius-island);
+      margin-top: 20px;                      /* visible gap = island effect */
+      padding: 10px 0;                       /* slight tighten */
+      box-shadow: var(--shadow-island);      /* soft shadow around */
     }
 
-    /* Optional: slight scale for polish (comment out if you don't want it) */
-    @media (prefers-reduced-motion: no-preference){
-      #header-shell.is-floating #site-header{
-        transform: translateZ(0);
-      }
+    /* Mobile tweak */
+    @media (max-width: 960px){
+      #header-shell.is-floating #site-header{ border-radius: 28px; margin-top: 16px; }
     }
   </style>
 
