@@ -7,7 +7,7 @@
 
 ## Current Status: IN DEVELOPMENT
 - Development barrier implemented with admin access code
-- Admin code: "Intership99" (secured server-side)
+- Admin code: "Internship99" (secured server-side)
 
 ## Key Features Implemented
 
