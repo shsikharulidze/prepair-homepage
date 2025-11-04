@@ -251,6 +251,31 @@
   </style>
 
   <script>
+    // Development barrier check
+    (function() {
+      const access = sessionStorage.getItem('dev_access');
+      if (!access) {
+        window.location.href = 'dev-barrier.html';
+        return;
+      }
+      
+      try {
+        const decoded = atob(access);
+        const timestamp = parseInt(decoded.split('_')[0]);
+        const isRecent = Date.now() - timestamp < 24 * 60 * 60 * 1000;
+        
+        if (!isRecent || !decoded.includes('valid')) {
+          sessionStorage.removeItem('dev_access');
+          window.location.href = 'dev-barrier.html';
+          return;
+        }
+      } catch(e) {
+        sessionStorage.removeItem('dev_access');
+        window.location.href = 'dev-barrier.html';
+        return;
+      }
+    })();
+
     document.getElementById('year').textContent = new Date().getFullYear();
     
     // Island header toggle on scroll
